@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title></title> Projeto Cronometro - javaScript</title>
+    <style>
+       .container{
+        text-align: center;
+    }
+
+    button{
+        background: #869;
+     <button id="comecar">Comecar </button>
+
+     <div id ="display">
+         <h3></h3>
+     </div>
+     
+   </div>
+   <script>
+       var display = document.getElementById('display')
+
+       var display = document.getElementById('Minutos')
+       var display = document.getElementById('Segundos')
+
+       var display = document.getElementById('comecar')
+
+       var conometroSeg
+
+       var minutoAtual;
+       var segundoAtual;
+
+       var interval;
+
+       for(var i = 0; i <=60; i++){
+          Minutos.innerHTML +='<option value="'+i+'">'+i+'</option>';
+
+       }
+       for(var i = 1; i <=60; i++){
+          Segundos.innerHTML +='<option value="'+i+'">'+i+'</option>';
+          
+       }
+       comecar.addEventListener('click', function(){
+       
+        minutoAtual = Minutos.value;
+        segundoAtual = Segundos.value;        
+
+        display.childNodes[0].innerHTML = minutoAtual + ":" + segundoAtual;
+
+        interval = setInterval(function(){
+            segundoAtual--;
+            if(segundoAtual <= 0){
+                if(minutoAtual> 0){
+                    minutoAtual--;
+                    segundoAtual = 59;
+                }else{
+                    alert("acabou")
+                    document.getElementById("sound").play();
+                    clearInterval(interval);
+                }
+
+            }
+        
+            display.childNodes[1].innerHTML = minutoAtual + ":" + segundoAtual;
+     },1000);
+       
+       })
+
+   </script>
+
+
+    </body>
+
+</html>
